@@ -69,7 +69,7 @@ st.markdown(
         background-color: #ff3b61;
     }}
     .stHeader {{
-        color: #2e2e2e;  /* Dark color for header */
+        color: black;  /* Dark color for header */
         font-size: 32px;  /* Larger header font size */
     }}
     .stMarkdown {{
