@@ -46,7 +46,7 @@ background_image_path = "back.jpg"
 # Encode the image
 base64_image = get_base64_of_image(background_image_path)
 
-# Inject CSS to apply the background image
+# Inject CSS to apply the background image and adjust text colors
 st.markdown(
     f"""
     <style>
@@ -56,12 +56,38 @@ st.markdown(
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
+    .stButton > button {{
+        background-color: #ff5c8d;
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }}
+    .stButton > button:hover {{
+        background-color: #ff3b61;
+    }}
+    .stHeader {{
+        color: #2e2e2e;  /* Dark color for header */
+    }}
+    .stMarkdown {{
+        color: #2e2e2e;  /* Dark color for text */
+    }}
+    .stSelectbox select {{
+        color: #2e2e2e;  /* Dark text for dropdown */
+    }}
+    .stTextInput input {{
+        color: #2e2e2e;  /* Dark text for input fields */
+    }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
 st.header('Movie Recommender System')
+
+# Load movies and similarity matrices
 movies = pickle.load(open('movies.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 movies = pd.DataFrame(movies)
