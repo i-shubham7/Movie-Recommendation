@@ -69,20 +69,20 @@ st.markdown(
         background-color: #ff3b61;
     }}
     .stHeader {{
-        color: black;  /* Dark color for header */
+        color: #ff5c8d;  /* Same color as the select box label */
         font-size: 32px;  /* Larger header font size */
     }}
     .stMarkdown {{
-        color: #2e2e2e;  /* Dark color for text */
+        color: #ff5c8d;  /* Same color for text */
     }}
     .stSelectbox select {{
-        color: #2e2e2e;  /* Dark text for dropdown */
+        color: #ff5c8d;  /* Same color for dropdown text */
     }}
     .stTextInput input {{
-        color: #2e2e2e;  /* Dark text for input fields */
+        color: #ff5c8d;  /* Same color for input fields */
     }}
     .stSelectbox label {{
-        color: #2e2e2e;  /* Dark color for selectbox label */
+        color: #ff5c8d;  /* Same color for selectbox label */
         font-size: 18px;  /* Customize label size */
     }}
     </style>
