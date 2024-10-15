@@ -41,12 +41,12 @@ def get_base64_of_image(image_path):
         return base64.b64encode(img_file.read()).decode()
 
 # Path to the background image
-background_image_path = "backsmall.jpg"  # Updated to backsmall.jpg
+background_image_path = "back.jpg"
 
 # Encode the image
 base64_image = get_base64_of_image(background_image_path)
 
-# Inject CSS to apply the background image and custom styling
+# Inject CSS to apply the background image
 st.markdown(
     f"""
     <style>
@@ -56,32 +56,12 @@ st.markdown(
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
-    .stButton > button {{
-        background-color: #ff5c8d;
-        color: white;
-        border: none;
-        padding: 10px 30px;
-        font-size: 18px;
-        border-radius: 5px;
-        cursor: pointer;
-    }}
-    .stButton > button:hover {{
-        background-color: #ff3b61;
-    }}
-    .stHeader {{
-        color: #ff5c8d;
-    }}
-    .stMarkdown {{
-        color: #FFFFFF;
-    }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
 st.header('Movie Recommender System')
-
-# Load movies and similarity matrices
 movies = pickle.load(open('movies.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 movies = pd.DataFrame(movies)
@@ -89,16 +69,12 @@ movies = pd.DataFrame(movies)
 movie_list = movies['title'].tolist()
 selected_movie = st.selectbox(
     "Type or select a movie from the dropdown",
-    movie_list,
-    key="movie_select"
+    movie_list
 )
 
 if st.button('Show Recommendation'):
     recommended_movie_names, recommended_movie_posters, recommended_movie_urls = recommend(selected_movie)
-    
-    # Responsive columns based on screen size
-    cols = st.columns(5 if st.experimental_get_option('layout') == 'centered' else 3)
-    
+    cols = st.columns(5)
     for idx, col in enumerate(cols):
         with col:
             st.markdown(f"[![{recommended_movie_names[idx]}]({recommended_movie_posters[idx]})]({recommended_movie_urls[idx]})")
