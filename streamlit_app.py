@@ -70,6 +70,7 @@ st.markdown(
     }}
     .stHeader {{
         color: #2e2e2e;  /* Dark color for header */
+        font-size: 32px;  /* Larger header font size */
     }}
     .stMarkdown {{
         color: #2e2e2e;  /* Dark color for text */
@@ -79,6 +80,10 @@ st.markdown(
     }}
     .stTextInput input {{
         color: #2e2e2e;  /* Dark text for input fields */
+    }}
+    .stSelectbox label {{
+        color: #2e2e2e;  /* Dark color for selectbox label */
+        font-size: 18px;  /* Customize label size */
     }}
     </style>
     """,
