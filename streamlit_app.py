@@ -41,7 +41,7 @@ def get_base64_of_image(image_path):
         return base64.b64encode(img_file.read()).decode()
 
 # Path to the background image
-background_image_path = "back.jpg"
+background_image_path = "backsmall.jpg"  # Updated to backsmall.jpg
 
 # Encode the image
 base64_image = get_base64_of_image(background_image_path)
@@ -104,4 +104,3 @@ if st.button('Show Recommendation'):
             st.markdown(f"[![{recommended_movie_names[idx]}]({recommended_movie_posters[idx]})]({recommended_movie_urls[idx]})")
             # Display the title only once in a larger font
             st.markdown(f"<span style='font-size: 16px; word-wrap: break-word;'>{recommended_movie_names[idx]}</span>", unsafe_allow_html=True)
-
